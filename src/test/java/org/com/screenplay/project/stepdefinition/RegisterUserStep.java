@@ -5,6 +5,7 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.actions.Click;
+import org.com.screenplay.project.questions.AccountCreated;
 import org.com.screenplay.project.questions.UserIsLoggedIn;
 import org.com.screenplay.project.tasks.SignUp;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.com.screenplay.project.ui.AccountCreatedUI.BTN_CONTINUE;
 import static org.com.screenplay.project.ui.LoginUI.BTN_LOGIN;
 import static org.hamcrest.Matchers.is;
 
@@ -102,12 +104,25 @@ public class RegisterUserStep {
     @Entonces("el sistema debe crear la cuenta exitosamente")
     public void elSistemaDebeCrearLaCuentaExitosamente() {
         theActorInTheSpotlight().should(
+                seeThat("la cuenta fue creada", AccountCreated.successfully(), is(true))
+        );
+        
+        // Hacer clic en continuar para llegar al dashboard
+        theActorInTheSpotlight().attemptsTo(
+                Click.on(BTN_CONTINUE)
+        );
+        
+        // Ahora validar que el usuario está logueado
+        theActorInTheSpotlight().should(
                 seeThat("el usuario está logueado", UserIsLoggedIn.successfully(), is(true))
         );
     }
 
     @Y("debe mostrar el mensaje {string}")
     public void debeMostrarElMensaje(String mensaje) {
+        theActorInTheSpotlight().should(
+                seeThat("el mensaje de cuenta creada", AccountCreated.successfully(), is(true))
+        );
     }
 }
 

@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import org.com.screenplay.project.tasks.SignUp;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.com.screenplay.project.ui.AccountCreatedUI.BTN_CONTINUE;
 import static org.com.screenplay.project.ui.LoginUI.BTN_LOGIN;
 
 /**
@@ -38,7 +39,8 @@ public class E2EFlowStep {
                         "New York",
                         "10001",
                         "1234567890"
-                )
+                ),
+                Click.on(BTN_CONTINUE)
         );
     }
 }
