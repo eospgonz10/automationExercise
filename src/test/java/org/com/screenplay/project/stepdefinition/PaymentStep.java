@@ -53,6 +53,26 @@ public class PaymentStep {
         elClienteCompletaElPagoConTarjetaValida();
     }
 
+    @Y("procede al checkout desde el carrito")
+    public void procedeAlCheckoutDesdeElCarrito() {
+        theActorInTheSpotlight().attemptsTo(
+                ProceedToCheckout.now()
+        );
+    }
+
+    @Y("completa el pago con tarjeta válida")
+    public void completaElPagoConTarjetaValida() {
+        theActorInTheSpotlight().attemptsTo(
+                ProcessPayment.withCardData(
+                        DEFAULT_CARD_NAME,
+                        DEFAULT_CARD_NUMBER,
+                        DEFAULT_CARD_CVC,
+                        DEFAULT_CARD_MONTH,
+                        DEFAULT_CARD_YEAR
+                )
+        );
+    }
+
     @Entonces("debe ver el mensaje de confirmación de pago")
     public void debeVerElMensajeDeConfirmacionDePago() {
         theActorInTheSpotlight().should(
