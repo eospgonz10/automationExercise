@@ -1,6 +1,5 @@
 package org.com.screenplay.project.stepdefinition;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
@@ -8,8 +7,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import org.com.screenplay.project.questions.AccountCreated;
 import org.com.screenplay.project.questions.UserIsLoggedIn;
 import org.com.screenplay.project.tasks.SignUp;
-
-import java.util.Map;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -72,7 +69,7 @@ public class RegisterUserStep {
 
     @Y("debe mostrar el mensaje {string}")
     public void debeMostrarElMensaje(String mensaje) {
-        // Validar que el mensaje está visible (antes de hacer clic en Continue)
+        // Validar que el mensaje está visible
         theActorInTheSpotlight().should(
                 seeThat("el mensaje de cuenta creada está visible", 
                         AccountCreated.successfully(), is(true))

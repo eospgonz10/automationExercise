@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 /**
  * Runner para ejecutar flujo E2E completo.
- * Configurado para ejecución paralela y reportes Serenity.
  */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(

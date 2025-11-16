@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 /**
  * Runner para ejecutar escenarios de registro de usuarios.
- * Configurado para ejecución paralela y reportes Serenity.
  */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(

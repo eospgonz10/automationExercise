@@ -16,10 +16,6 @@ import static org.com.screenplay.project.utils.Constants.TIME_SHORT;
 
 /**
  * Task para agregar un producto al carrito siguiendo el flujo:
- * 1. Ver producto
- * 2. Add to cart
- * 3. Validar mensaje
- * 4. Continue shopping
  */
 @AllArgsConstructor
 public class AddProductsToCart implements Task {
@@ -46,10 +42,7 @@ public class AddProductsToCart implements Task {
                 WaitUntil.the(TXT_PRODUCT_ADDED_MESSAGE, isVisible())
                         .forNoMoreThan(TIME_SHORT).seconds()
         );
-
-        // Paso 3: Esperar mensaje de confirmación (ya validado con WaitUntil)
-
-        // Paso 4: Hacer clic en "Continue Shopping" del modal
+        // Paso 3: Hacer clic en "Continue Shopping" del modal
         actor.attemptsTo(
                 WaitUntil.the(BTN_CONTINUE_SHOPPING_MODAL, isClickable())
                         .forNoMoreThan(TIME_SHORT).seconds(),
