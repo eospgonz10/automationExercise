@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
@@ -27,15 +28,19 @@ public class AddProductsToCart implements Task {
     @Override
     @Step("{0} agrega producto al carrito")
     public <T extends Actor> void performAs(T actor) {
-        // Paso 1: Hacer clic en "View Product"
+        // Paso 1: Hacer clic en "View Product" con scroll previo
         actor.attemptsTo(
+                Scroll.to(BTN_VIEW_PRODUCT.of(productPosition)),
+                WaitUntil.the(BTN_VIEW_PRODUCT.of(productPosition), isVisible())
+                        .forNoMoreThan(TIME_SHORT).seconds(),
                 Click.on(BTN_VIEW_PRODUCT.of(productPosition)),
                 WaitUntil.the(BTN_ADD_TO_CART_DETAIL, isVisible())
                         .forNoMoreThan(TIME_SHORT).seconds()
         );
 
-        // Paso 2: Hacer clic en "Add to cart" en la página de detalle
+        // Paso 2: Hacer clic en "Add to cart" en la página de detalle con scroll
         actor.attemptsTo(
+                Scroll.to(BTN_ADD_TO_CART_DETAIL),
                 Click.on(BTN_ADD_TO_CART_DETAIL),
                 WaitUntil.the(TXT_PRODUCT_ADDED_MESSAGE, isVisible())
                         .forNoMoreThan(TIME_SHORT).seconds()
