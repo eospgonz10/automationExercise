@@ -10,6 +10,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static org.com.screenplay.project.ui.ProductsUI.*;
 import static org.com.screenplay.project.utils.Constants.TIME_SHORT;
 
@@ -48,8 +49,10 @@ public class AddProductsToCart implements Task {
 
         // Paso 3: Esperar mensaje de confirmación (ya validado con WaitUntil)
 
-        // Paso 4: Hacer clic en "Continue Shopping"
+        // Paso 4: Hacer clic en "Continue Shopping" del modal
         actor.attemptsTo(
+                WaitUntil.the(BTN_CONTINUE_SHOPPING_MODAL, isClickable())
+                        .forNoMoreThan(TIME_SHORT).seconds(),
                 Click.on(BTN_CONTINUE_SHOPPING_MODAL)
         );
     }

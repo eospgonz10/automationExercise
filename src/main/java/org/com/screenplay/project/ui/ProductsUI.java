@@ -29,9 +29,9 @@ public class ProductsUI {
     public static final Target TXT_PRODUCT_ADDED_MESSAGE = Target.the("mensaje producto agregado al carrito")
             .located(By.xpath("//*[@id='cartModal']/div/div/div[2]/p[1]"));
 
-    // Botón "Continue Shopping" en el modal
+    // Botón "Continue Shopping" en el modal de confirmación
     public static final Target BTN_CONTINUE_SHOPPING_MODAL = Target.the("botón continuar comprando en modal")
-            .located(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/span/button"));
+            .located(By.xpath("//*[@id='cartModal']//button[contains(@class, 'btn-success')]"));
 
     public static final Target BTN_VIEW_CART = Target.the("botón ver carrito")
             .located(By.xpath("//*[@href='/view_cart']"));
