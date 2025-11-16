@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import org.hamcrest.Matchers;
+import org.com.screenplay.project.config.WebDriverConfig;
 import org.com.screenplay.project.hook.OpenWeb;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -19,6 +20,8 @@ public class Hook {
 
     @Before
     public void setTheStage() {
+
+        WebDriverConfig.setupDrivers();
         OnStage.setTheStage(new OnlineCast());
     }
 
