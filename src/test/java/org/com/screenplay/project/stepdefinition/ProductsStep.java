@@ -33,21 +33,17 @@ public class ProductsStep {
         );
     }
 
-    @Y("agrega los productos con IDs {string} al carrito")
-    public void agregaLosProductosConIDsAlCarrito(String productIds) {
-        List<String> ids = Arrays.stream(productIds.split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
-        
+    @Y("agrega el primer producto al carrito")
+    public void agregaElPrimerProductoAlCarrito() {
         theActorInTheSpotlight().attemptsTo(
-                AddProductsToCart.withIds(ids)
+                AddProductsToCart.firstProduct()
         );
     }
 
-    @Y("agrega el producto con ID {string} al carrito")
-    public void agregaElProductoConIDAlCarrito(String productId) {
+    @Y("agrega el segundo producto al carrito")
+    public void agregaElSegundoProductoAlCarrito() {
         theActorInTheSpotlight().attemptsTo(
-                AddProductsToCart.withId(productId)
+                AddProductsToCart.secondProduct()
         );
     }
 
@@ -107,7 +103,7 @@ public class ProductsStep {
     public void tieneProductosEnElCarrito() {
         theActorInTheSpotlight().attemptsTo(
                 NavigateToProducts.page(),
-                AddProductsToCart.withId("1"),
+                AddProductsToCart.firstProduct(),
                 ViewCart.page()
         );
     }
