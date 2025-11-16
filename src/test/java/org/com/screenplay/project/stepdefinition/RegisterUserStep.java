@@ -103,25 +103,28 @@ public class RegisterUserStep {
 
     @Entonces("el sistema debe crear la cuenta exitosamente")
     public void elSistemaDebeCrearLaCuentaExitosamente() {
+        // Primero validar que el mensaje de cuenta creada aparece
         theActorInTheSpotlight().should(
                 seeThat("la cuenta fue creada", AccountCreated.successfully(), is(true))
-        );
-        
-        // Hacer clic en continuar para llegar al dashboard
-        theActorInTheSpotlight().attemptsTo(
-                Click.on(BTN_CONTINUE)
-        );
-        
-        // Ahora validar que el usuario está logueado
-        theActorInTheSpotlight().should(
-                seeThat("el usuario está logueado", UserIsLoggedIn.successfully(), is(true))
         );
     }
 
     @Y("debe mostrar el mensaje {string}")
     public void debeMostrarElMensaje(String mensaje) {
+        // Validar que el mensaje está visible (antes de hacer clic en Continue)
         theActorInTheSpotlight().should(
-                seeThat("el mensaje de cuenta creada", AccountCreated.successfully(), is(true))
+                seeThat("el mensaje de cuenta creada está visible", 
+                        AccountCreated.successfully(), is(true))
+        );
+        
+        // Después de validar el mensaje, hacer clic en Continue
+        theActorInTheSpotlight().attemptsTo(
+                Click.on(BTN_CONTINUE)
+        );
+        
+        // Finalmente validar que el usuario está logueado en el dashboard
+        theActorInTheSpotlight().should(
+                seeThat("el usuario está logueado", UserIsLoggedIn.successfully(), is(true))
         );
     }
 }
