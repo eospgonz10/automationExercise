@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
@@ -36,6 +37,8 @@ public class ProcessPayment implements Task {
                 Enter.theValue(cvc).into(INPUT_CVC),
                 Enter.theValue(expiryMonth).into(INPUT_EXPIRY_MONTH),
                 Enter.theValue(expiryYear).into(INPUT_EXPIRY_YEAR),
+                Scroll.to(BTN_PAY),
+                WaitUntil.the(BTN_PAY, isVisible()).forNoMoreThan(TIME_SHORT).seconds(),
                 Click.on(BTN_PAY)
         );
     }

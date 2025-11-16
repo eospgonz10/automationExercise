@@ -4,6 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 
@@ -21,6 +22,9 @@ public class ProceedToCheckout implements Task {
     @Step("{0} procede al checkout")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Scroll.to(BTN_CHECKOUT),
+                WaitUntil.the(BTN_CHECKOUT, isVisible())
+                        .forNoMoreThan(TIME_SHORT).seconds(),
                 Click.on(BTN_CHECKOUT),
                 WaitUntil.the(BTN_PLACE_ORDER, isVisible())
                         .forNoMoreThan(TIME_SHORT).seconds(),

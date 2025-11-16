@@ -49,6 +49,14 @@ public class ProductsStep {
         );
     }
 
+    @Y("agrega un producto y va al carrito")
+    public void agregaUnProductoYVaAlCarrito() {
+        theActorInTheSpotlight().attemptsTo(
+                AddProductsToCart.firstProduct(),
+                ViewCart.page()
+        );
+    }
+
     @Y("agrega el segundo producto al carrito")
     public void agregaElSegundoProductoAlCarrito() {
         theActorInTheSpotlight().attemptsTo(
