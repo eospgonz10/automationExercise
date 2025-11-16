@@ -7,17 +7,12 @@ public class Constants {
     
     private Constants() {}
 
-    // Actor
-    public static final String ACTOR = "Cliente";
-
     // URLs y configuración
     public static final String WEB_URL = "environments.default.webdriver.base.url";
     public static final String TITLE_WEBSITE = "Automation Exercise";
 
     // Timeouts
     public static final int TIME_SHORT = 10;
-    public static final int TIME_MEDIUM = 20;
-    public static final int TIME_LONG = 30;
 
     // Credenciales
     public static final String USER_EMAIL = "credentials.default.user.email";
@@ -25,8 +20,6 @@ public class Constants {
 
     // Mensajes de validación
     public static final String MSG_ORDER_PLACED = "ORDER PLACED!";
-    public static final String MSG_ACCOUNT_CREATED = "ACCOUNT CREATED!";
-    public static final String MSG_LOGIN_ERROR = "Your email or password is incorrect!";
 
     // Datos de tarjeta de prueba
     public static final String DEFAULT_CARD_NAME = "John Doe";
