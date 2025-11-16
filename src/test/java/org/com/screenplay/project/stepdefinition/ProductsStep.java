@@ -26,6 +26,15 @@ public class ProductsStep {
 
     private static EnvironmentVariables environmentVariables;
 
+    @Cuando("el cliente agrega el primer producto al carrito")
+    public void elClienteAgregaElPrimerProductoAlCarrito() {
+        theActorInTheSpotlight().attemptsTo(
+                NavigateToProducts.page(),
+                AddProductsToCart.firstProduct(),
+                ViewCart.page()
+        );
+    }
+
     @Cuando("el cliente navega a la sección de productos")
     public void elClienteNavegaALaSeccionDeProductos() {
         theActorInTheSpotlight().attemptsTo(

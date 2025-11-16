@@ -14,24 +14,17 @@ Característica: Proceso de pago
 
   @pagoExitoso
   Escenario: Procesar pago con tarjeta válida exitosamente
-    Cuando el cliente procede al checkout desde el carrito
-    Y completa el pago con los siguientes datos de tarjeta:
-      | campo        | valor              |
-      | Nombre       | John Doe           |
-      | Número       | 4111111111111111   |
-      | CVC          | 123                |
-      | Mes          | 12                 |
-      | Año          | 2027               |
+    Cuando el cliente completa el pago con tarjeta válida
     Entonces debe ver el mensaje de confirmación de pago
+    Y debe ver el mensaje "ORDER PLACED!" en la confirmación
 
   @pagoDataDriven
   Esquema del escenario: Procesar pagos con diferentes tarjetas
-    Cuando el cliente procede al checkout desde el carrito
-    Y completa el pago con nombre "<nombre>", tarjeta "<tarjeta>", CVC "<cvc>"
-    Entonces debe ver el mensaje de confirmación de pago
+    Cuando el cliente completa el pago con tarjeta "<tarjeta>"
+    Entonces debe ver el mensaje "ORDER PLACED!" en la confirmación
 
     Ejemplos:
-      | nombre       | tarjeta           | cvc |
-      | John Smith   | 4111111111111111  | 123 |
-      | Jane Doe     | 5555555555554444  | 456 |
-      | Bob Johnson  | 378282246310005   | 789 |
+      | tarjeta           |
+      | 4111111111111111  |
+      | 5555555555554444  |
+      | 378282246310005   |

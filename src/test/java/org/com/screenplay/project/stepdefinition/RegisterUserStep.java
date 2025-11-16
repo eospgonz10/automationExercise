@@ -26,77 +26,38 @@ public class RegisterUserStep {
     private String tempEmail;
     private String tempPassword;
 
-    @Cuando("el cliente accede a la opción {string}")
-    public void elClienteAccedeALaOpcion(String opcion) {
-        theActorInTheSpotlight().attemptsTo(
-                Click.on(BTN_LOGIN)
-        );
-    }
-
-    @Y("completa el formulario inicial con nombre {string} y email único")
-    public void completaElFormularioInicialConNombreYEmailUnico(String nombre) {
-        tempName = nombre;
-        tempEmail = nombre.toLowerCase() + System.currentTimeMillis() + "@test.com";
+    @Cuando("el cliente completa el formulario de registro con datos válidos")
+    public void elClienteCompletaElFormularioDeRegistroConDatosValidos() {
+        tempName = "TestUser";
+        tempEmail = "testuser" + System.currentTimeMillis() + "@test.com";
         tempPassword = "Test123!";
-    }
-
-    @Y("completa el formulario de registro con los siguientes datos:")
-    public void completaElFormularioDeRegistroConLosSiguientesDatos(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap(String.class, String.class);
-
+        
         theActorInTheSpotlight().attemptsTo(
+                Click.on(BTN_LOGIN),
                 SignUp.withUserData(
-                        tempName,
-                        tempEmail,
-                        data.getOrDefault("Contraseña", tempPassword),
-                        data.getOrDefault("Género", "Male"),
-                        data.getOrDefault("Día", "15"),
-                        data.getOrDefault("Mes", "January"),
-                        data.getOrDefault("Año", "1990"),
-                        Boolean.parseBoolean(data.getOrDefault("Newsletter", "false")),
-                        Boolean.parseBoolean(data.getOrDefault("Ofertas", "false")),
-                        data.getOrDefault("Nombre", "John"),
-                        data.getOrDefault("Apellido", "Doe"),
-                        data.getOrDefault("Compañía", ""),
-                        data.getOrDefault("Dirección", "123 Main St"),
-                        data.getOrDefault("País", "United States"),
-                        data.getOrDefault("Estado", "California"),
-                        data.getOrDefault("Ciudad", "New York"),
-                        data.getOrDefault("Código postal", "10001"),
-                        data.getOrDefault("Teléfono", "1234567890")
+                        tempName, tempEmail, tempPassword,
+                        "Male", "15", "January", "1990",
+                        true, true,
+                        "John", "Doe", "Tech Solutions",
+                        "123 Main Street", "United States", "California",
+                        "Los Angeles", "90001", "3001234567"
                 )
         );
     }
 
-    @Y("completa el formulario inicial con nombre {string} y email {string}")
-    public void completaElFormularioInicialConNombreYEmail(String nombre, String email) {
-        tempName = nombre;
-        tempEmail = email + System.currentTimeMillis() + ".com";
-        tempPassword = "Test123!";
-    }
-
-    @Y("completa el formulario de registro con password {string} y ciudad {string}")
-    public void completaElFormularioDeRegistroConPasswordYCiudad(String password, String ciudad) {
+    @Cuando("el cliente completa el registro con nombre {string} y email {string}")
+    public void elClienteCompletaElRegistroConNombreYEmail(String nombre, String email) {
+        tempEmail = email.replace("@", System.currentTimeMillis() + "@");
+        
         theActorInTheSpotlight().attemptsTo(
+                Click.on(BTN_LOGIN),
                 SignUp.withUserData(
-                        tempName,
-                        tempEmail,
-                        password,
-                        "Male",
-                        "15",
-                        "January",
-                        "1990",
-                        true,
-                        true,
-                        "John",
-                        "Doe",
-                        "Company",
-                        "123 Main St",
-                        "United States",
-                        "California",
-                        ciudad,
-                        "10001",
-                        "1234567890"
+                        nombre, tempEmail, "Test123!",
+                        "Male", "15", "January", "1990",
+                        true, true,
+                        "John", "Doe", "Company",
+                        "123 Main St", "United States", "California",
+                        "New York", "10001", "1234567890"
                 )
         );
     }

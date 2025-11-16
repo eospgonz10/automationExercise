@@ -11,9 +11,7 @@ Característica: Flujo E2E completo de compra
   Escenario: Flujo E2E - Registro, selección de productos, pago y confirmación
     Dado que "Cliente" navega a la página de Automation Exercise
     Cuando el cliente se registra con datos válidos
-    Y navega a la sección de productos
     Y agrega el primer producto al carrito
-    Y visualiza el carrito de compras
     Y procede al checkout desde el carrito
     Y completa el pago con tarjeta válida
     Entonces debe ver el mensaje "ORDER PLACED!" en la confirmación
@@ -23,24 +21,7 @@ Característica: Flujo E2E completo de compra
   Escenario: Flujo E2E - Usuario existente realiza compra
     Dado que "Cliente" navega a la página de Automation Exercise
     Cuando el cliente inicia sesión con email "prueba1@udea.edu.co" y password "Prueba123"
-    Y navega a la sección de productos
     Y agrega el primer producto al carrito
-    Y visualiza el carrito de compras
     Y procede al checkout desde el carrito
     Y completa el pago con tarjeta válida
     Entonces debe ver el mensaje "ORDER PLACED!" en la confirmación
-
-  @flujoCompletoDataDriven
-  Esquema del escenario: Flujo E2E con primer producto
-    Dado que "Cliente" navega a la página de Automation Exercise
-    Cuando el cliente inicia sesión con credenciales válidas
-    Y navega a la sección de productos
-    Y agrega el primer producto al carrito
-    Y visualiza el carrito de compras
-    Y procede al checkout desde el carrito
-    Y completa el pago con tarjeta válida
-    Entonces debe ver el mensaje "ORDER PLACED!" en la confirmación
-
-    Ejemplos:
-      | escenario |
-      | flujo1    |
