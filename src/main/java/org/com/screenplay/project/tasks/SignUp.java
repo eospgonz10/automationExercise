@@ -34,6 +34,7 @@ public class SignUp implements Task {
     private final String company;
     private final String address;
     private final String country;
+    private final String state;
     private final String city;
     private final String zipcode;
     private final String mobile;
@@ -83,6 +84,7 @@ public class SignUp implements Task {
                 Enter.theValue(company).into(INPUT_COMPANY),
                 Enter.theValue(address).into(INPUT_ADDRESS),
                 SelectFromOptions.byVisibleText(country).from(SELECT_COUNTRY),
+                Enter.theValue(state).into(INPUT_STATE),
                 Enter.theValue(city).into(INPUT_CITY),
                 Enter.theValue(zipcode).into(INPUT_ZIPCODE),
                 Enter.theValue(mobile).into(INPUT_MOBILE),
@@ -91,13 +93,13 @@ public class SignUp implements Task {
     }
 
     public static SignUp withUserData(String name, String email, String password,
-                                       String gender, String day, String month, String year,
-                                       boolean newsletter, boolean offers,
-                                       String firstName, String lastName, String company,
-                                       String address, String country, String city,
-                                       String zipcode, String mobile) {
+                                      String gender, String day, String month, String year,
+                                      boolean newsletter, boolean offers,
+                                      String firstName, String lastName, String company,
+                                      String address, String country, String state, String city,
+                                      String zipcode, String mobile) {
         return Tasks.instrumented(SignUp.class, name, email, password, gender,
                 day, month, year, newsletter, offers, firstName, lastName,
-                company, address, country, city, zipcode, mobile);
+                company, address, country, state, city, zipcode, mobile);
     }
 }

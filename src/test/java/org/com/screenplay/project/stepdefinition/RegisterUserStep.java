@@ -41,7 +41,7 @@ public class RegisterUserStep {
     @Y("completa el formulario de registro con los siguientes datos:")
     public void completaElFormularioDeRegistroConLosSiguientesDatos(DataTable dataTable) {
         Map<String, String> data = dataTable.asMap(String.class, String.class);
-        
+
         theActorInTheSpotlight().attemptsTo(
                 SignUp.withUserData(
                         tempName,
@@ -58,6 +58,7 @@ public class RegisterUserStep {
                         data.getOrDefault("Compañía", ""),
                         data.getOrDefault("Dirección", "123 Main St"),
                         data.getOrDefault("País", "United States"),
+                        data.getOrDefault("Estado", "California"),
                         data.getOrDefault("Ciudad", "New York"),
                         data.getOrDefault("Código postal", "10001"),
                         data.getOrDefault("Teléfono", "1234567890")
@@ -90,6 +91,7 @@ public class RegisterUserStep {
                         "Company",
                         "123 Main St",
                         "United States",
+                        "California",
                         ciudad,
                         "10001",
                         "1234567890"
@@ -105,7 +107,7 @@ public class RegisterUserStep {
     }
 
     @Y("debe mostrar el mensaje {string}")
-    public void debeMostrarElMensaje(String mensaje) {        
+    public void debeMostrarElMensaje(String mensaje) {
     }
 }
 

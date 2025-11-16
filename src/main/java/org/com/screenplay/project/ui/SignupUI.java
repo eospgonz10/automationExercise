@@ -65,6 +65,9 @@ public class SignupUI {
     public static final Target SELECT_COUNTRY = Target.the("select country")
             .located(By.xpath("//*[@data-qa='country']"));
 
+    public static final Target INPUT_STATE = Target.the("campo state")
+            .located(By.xpath("//*[@data-qa='state']"));
+
     public static final Target INPUT_CITY = Target.the("campo city")
             .located(By.xpath("//*[@data-qa='city']"));
 

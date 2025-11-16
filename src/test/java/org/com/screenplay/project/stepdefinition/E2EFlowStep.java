@@ -16,7 +16,7 @@ public class E2EFlowStep {
     public void elClienteSeRegistraConDatosValidos() {
         String timestamp = String.valueOf(System.currentTimeMillis());
         String email = "user" + timestamp + "@test.com";
-        
+
         theActorInTheSpotlight().attemptsTo(
                 Click.on(BTN_LOGIN),
                 SignUp.withUserData(
@@ -34,6 +34,7 @@ public class E2EFlowStep {
                         "Tech Company",
                         "123 Main Street",
                         "United States",
+                        "California",
                         "New York",
                         "10001",
                         "1234567890"
