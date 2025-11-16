@@ -1,12 +1,8 @@
 package org.com.screenplay.project.stepdefinition;
 
 import io.cucumber.java.es.Cuando;
-import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.actions.Click;
-import org.com.screenplay.project.tasks.AddProductsToCart;
-import org.com.screenplay.project.tasks.NavigateToProducts;
 import org.com.screenplay.project.tasks.SignUp;
-import org.com.screenplay.project.tasks.ViewCart;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.com.screenplay.project.ui.AccountCreatedUI.BTN_CONTINUE;
@@ -45,15 +41,6 @@ public class E2EFlowStep {
                         "1234567890"
                 ),
                 Click.on(BTN_CONTINUE)
-        );
-    }
-
-    @Y("agrega el primer producto al carrito")
-    public void agregaElPrimerProductoAlCarrito() {
-        theActorInTheSpotlight().attemptsTo(
-                NavigateToProducts.page(),
-                AddProductsToCart.firstProduct(),
-                ViewCart.page()
         );
     }
 }
