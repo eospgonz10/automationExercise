@@ -13,13 +13,12 @@ Característica: Registro de nuevo usuario
   @registroExitoso
   Escenario: Registro exitoso de nuevo usuario con datos completos
     Cuando el cliente completa el formulario de registro con datos válidos
-    Entonces el sistema debe crear la cuenta exitosamente
-    Y debe mostrar el mensaje "ACCOUNT CREATED!"
+    Entonces se crea la cuenta y muestra el mensaje de confirmación
 
   @registroDataDriven
   Esquema del escenario: Registro de múltiples usuarios con datos variables
     Cuando el cliente completa el registro con nombre "<nombre>" y email "<email>"
-    Entonces el sistema debe crear la cuenta exitosamente
+    Entonces se crea la cuenta y muestra el mensaje de confirmación
 
     Ejemplos:
       | nombre    | email                    |

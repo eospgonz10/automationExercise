@@ -15,4 +15,4 @@ Característica: Flujo E2E completo de compra
     Y procede al checkout desde el carrito
     Y completa el pago con tarjeta válida
     Entonces debe ver el mensaje "ORDER PLACED!" en la confirmación
-    Y la orden debe estar confirmada exitosamente
+    Y la orden se registra en el sistema

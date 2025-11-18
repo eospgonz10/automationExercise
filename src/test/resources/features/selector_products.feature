@@ -14,4 +14,4 @@ Característica: Selección y gestión de productos
   @seleccionProductoUnico
   Escenario: Agregar un producto al carrito exitosamente
     Cuando el cliente agrega el primer producto al carrito
-    Entonces debe ver los productos agregados en el carrito
+    Entonces el carrito muestra el producto agregado

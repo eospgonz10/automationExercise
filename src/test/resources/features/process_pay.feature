@@ -15,8 +15,7 @@ Característica: Proceso de pago
   @pagoExitoso
   Escenario: Procesar pago con tarjeta válida exitosamente
     Cuando el cliente completa el pago con tarjeta válida
-    Entonces debe ver el mensaje de confirmación de pago
-    Y debe ver el mensaje "ORDER PLACED!" en la confirmación
+    Entonces se muestra el mensaje de pago confirmado
 
   @pagoDataDriven
   Esquema del escenario: Procesar pagos con diferentes tarjetas

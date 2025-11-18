@@ -73,8 +73,8 @@ public class PaymentStep {
         );
     }
 
-    @Entonces("debe ver el mensaje de confirmación de pago")
-    public void debeVerElMensajeDeConfirmacionDePago() {
+    @Entonces("se muestra el mensaje de pago confirmado")
+    public void seMuestraElMensajeDePagoConfirmado() {
         theActorInTheSpotlight().should(
                 seeThat("el mensaje de orden confirmada",
                         OrderConfirmation.message(), containsString(MSG_ORDER_PLACED))

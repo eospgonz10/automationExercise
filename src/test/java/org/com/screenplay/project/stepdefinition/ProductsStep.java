@@ -71,8 +71,8 @@ public class ProductsStep {
         );
     }
 
-    @Entonces("debe ver los productos agregados en el carrito")
-    public void debeVerLosProductosAgregadosEnElCarrito() {
+    @Entonces("el carrito muestra el producto agregado")
+    public void elCarritoMuestraElProductoAgregado() {
         theActorInTheSpotlight().should(
                 seeThat("el carrito contiene productos",
                         CartContainsProducts.successfully(), is(true))

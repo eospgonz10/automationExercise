@@ -49,8 +49,8 @@ public class OrderConfirmationStep {
         );
     }
 
-    @Y("la orden debe estar confirmada exitosamente")
-    public void laOrdenDebeEstarConfirmadaExitosamente() {
+    @Y("la orden se registra en el sistema")
+    public void laOrdenSeRegistraEnElSistema() {
         theActorInTheSpotlight().should(
                 seeThat("la orden está confirmada",
                         OrderConfirmation.isDisplayed(), is(true))

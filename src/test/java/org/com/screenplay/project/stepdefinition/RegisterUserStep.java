@@ -59,11 +59,16 @@ public class RegisterUserStep {
         );
     }
 
-    @Entonces("el sistema debe crear la cuenta exitosamente")
-    public void elSistemaDebeCrearLaCuentaExitosamente() {
-        // Primero validar que el mensaje de cuenta creada aparece
+    @Entonces("se crea la cuenta y muestra el mensaje de confirmación")
+    public void seCreaLaCuentaYMuestraElMensajeDeConfirmacion() {
+        // Validar que el mensaje de cuenta creada aparece
         theActorInTheSpotlight().should(
                 seeThat("la cuenta fue creada", AccountCreated.successfully(), is(true))
+        );
+        
+        // Hacer clic en Continue después de validar el mensaje
+        theActorInTheSpotlight().attemptsTo(
+                Click.on(BTN_CONTINUE)
         );
     }
 
