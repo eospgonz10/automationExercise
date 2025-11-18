@@ -11,7 +11,7 @@
 
 Proyecto de automatización E2E que implementa el **patrón Screenplay** para validar el flujo completo de compra en Automation Exercise, desde el registro de usuario hasta la confirmación de orden.
 
-### ✨ Características Principales
+### Características Principales
 
 - ✅ **Patrón Screenplay**: Tasks, Questions, UI separados
 - ✅ **Principios SOLID**: Responsabilidad única, segregación de interfaces
@@ -287,5 +287,3 @@ Las contribuciones son bienvenidas. Por favor:
 5. Abre un Pull Request
 
 ---
-
-**¡Happy Testing! 🚀**
